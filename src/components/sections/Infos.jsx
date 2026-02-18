@@ -11,12 +11,12 @@ import {
 import AnimatedSection from "../ui/AnimatedSection";
 
 const INFO_FIELDS = [
-  { id: 'infos_lieu', icon: MapPin, title: 'Lieu' },
-  { id: 'infos_dates', icon: Calendar, title: 'Dates' },
-  { id: 'infos_billetterie', icon: Ticket, title: 'Billetterie' },
-  { id: 'infos_acces', icon: Car, title: 'Accès' },
-  { id: 'infos_experience', icon: Sparkles, title: 'Expérience' },
-  { id: 'infos_age', icon: ShieldCheck, title: '+18' },
+  { id: 'infos_lieu', titleId: 'infos_lieu_title', icon: MapPin },
+  { id: 'infos_dates', titleId: 'infos_dates_title', icon: Calendar },
+  { id: 'infos_billetterie', titleId: 'infos_billetterie_title', icon: Ticket },
+  { id: 'infos_acces', titleId: 'infos_acces_title', icon: Car },
+  { id: 'infos_experience', titleId: 'infos_experience_title', icon: Sparkles },
+  { id: 'infos_age', titleId: 'infos_age_title', icon: ShieldCheck },
 ];
 
 function InfoCard({ Icon, title, text, index }) {
@@ -73,7 +73,7 @@ export default function Infos({ content }) {
             <InfoCard
               key={field.id}
               Icon={field.icon}
-              title={field.title}
+              title={content[field.titleId]}
               text={content[field.id]}
               index={i}
             />

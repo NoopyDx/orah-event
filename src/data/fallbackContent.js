@@ -37,7 +37,15 @@ export const fallbackContent = {
   lineup_day4_label: 'Closing',
   lineup_day4_artists: 'TBA · TBA · TBA · TBA',
 
-  // Infos
+  // Infos — titres
+  infos_lieu_title: 'Lieu',
+  infos_dates_title: 'Dates',
+  infos_billetterie_title: 'Billetterie',
+  infos_acces_title: 'Accès',
+  infos_experience_title: 'Expérience',
+  infos_age_title: '+18',
+
+  // Infos — contenu
   infos_lieu: 'Quai des Fermettes, Visé\nEn bord de Meuse — 20 min de Liège, 15 min de Maastricht',
   infos_dates: '25 → 28 juin 2025\n4 soirées, 4 DJs par soirée',
   infos_billetterie: 'Tickets disponibles sur Paylogic\nBilletterie progressive — Early birds disponibles',
