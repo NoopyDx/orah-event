@@ -1,5 +1,4 @@
-import { SOCIAL_LINKS, TICKET_LINKS } from "../../data/links";
-import { FESTIVAL_INFO } from "../../data/festival";
+import { SOCIAL_LINKS } from "../../data/links";
 import logoPrimaire from "../../assets/logo/logo-primaire-creme.svg";
 import iconFacebook from "../../assets/logo/icon-facebook.png";
 import iconInstagram from "../../assets/logo/icon-instagram.png";
@@ -13,7 +12,7 @@ const SOCIALS = [
   { icon: iconEmail, alt: "Email ORAH", href: SOCIAL_LINKS.email },
 ];
 
-export default function Footer() {
+export default function Footer({ content }) {
   return (
     <footer className="relative py-16 border-t border-accent-orange/10">
       <div className="max-w-5xl mx-auto px-6 text-center">
@@ -50,7 +49,7 @@ export default function Footer() {
         {/* Quick ticket links */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <a
-            href={TICKET_LINKS.festival.url}
+            href={content.hero_cta1_url}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-text-secondary hover:text-accent-orange transition-colors font-light tracking-wide"
@@ -59,7 +58,7 @@ export default function Footer() {
           </a>
           <span className="hidden sm:block text-text-muted/30">|</span>
           <a
-            href={TICKET_LINKS.guillemins.url}
+            href={content.hero_cta2_url}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-text-secondary hover:text-accent-orange transition-colors font-light tracking-wide"
@@ -70,15 +69,15 @@ export default function Footer() {
 
         {/* Email */}
         <a
-          href="mailto:Orah.event@gmail.com"
+          href={`mailto:${content.footer_email}`}
           className="text-sm text-text-muted hover:text-text-secondary transition-colors font-light"
         >
-          Orah.event@gmail.com
+          {content.footer_email}
         </a>
 
         {/* Copyright */}
         <p className="text-xs text-text-muted/50 mt-6 font-light">
-          © 2025 ORAH — Visé, Belgique. Tous droits réservés.
+          {content.footer_copyright}
         </p>
       </div>
     </footer>

@@ -8,14 +8,19 @@ import {
   Sparkles,
   ShieldCheck,
 } from "lucide-react";
-import { INFOS } from "../../data/festival";
 import AnimatedSection from "../ui/AnimatedSection";
 
-const ICONS = { MapPin, Calendar, Ticket, Car, Sparkles, ShieldCheck };
+const INFO_FIELDS = [
+  { id: 'infos_lieu', icon: MapPin, title: 'Lieu' },
+  { id: 'infos_dates', icon: Calendar, title: 'Dates' },
+  { id: 'infos_billetterie', icon: Ticket, title: 'Billetterie' },
+  { id: 'infos_acces', icon: Car, title: 'Accès' },
+  { id: 'infos_experience', icon: Sparkles, title: 'Expérience' },
+  { id: 'infos_age', icon: ShieldCheck, title: '+18' },
+];
 
-function InfoCard({ info, index }) {
+function InfoCard({ Icon, title, text, index }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
-  const Icon = ICONS[info.icon];
 
   return (
     <motion.div
@@ -35,10 +40,10 @@ function InfoCard({ info, index }) {
         </div>
         <div>
           <h3 className="text-sm uppercase tracking-[0.15em] text-accent-orange font-light mb-2">
-            {info.title}
+            {title}
           </h3>
           <p className="text-sm text-text-secondary leading-relaxed whitespace-pre-line font-light">
-            {info.text}
+            {text}
           </p>
         </div>
       </div>
@@ -46,7 +51,7 @@ function InfoCard({ info, index }) {
   );
 }
 
-export default function Infos() {
+export default function Infos({ content }) {
   return (
     <section
       id="infos"
@@ -64,8 +69,14 @@ export default function Infos() {
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {INFOS.map((info, i) => (
-            <InfoCard key={info.title} info={info} index={i} />
+          {INFO_FIELDS.map((field, i) => (
+            <InfoCard
+              key={field.id}
+              Icon={field.icon}
+              title={field.title}
+              text={content[field.id]}
+              index={i}
+            />
           ))}
         </div>
       </div>

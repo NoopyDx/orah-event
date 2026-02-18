@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { LINEUP } from "../../data/lineup";
 import AnimatedSection from "../ui/AnimatedSection";
 import GoldenGlow from "../decorative/GoldenGlow";
 
@@ -23,7 +22,7 @@ function DayCard({ day, index }) {
         {/* Day header */}
         <div className="flex items-baseline gap-3 mb-5">
           <h3 className="text-xs uppercase tracking-[0.2em] text-accent-orange font-light">
-            {day.day}
+            {day.date}
           </h3>
           {day.label && (
             <span className="text-[10px] uppercase tracking-[0.15em] text-accent-rose px-2 py-0.5 rounded-full border border-accent-rose/30">
@@ -52,7 +51,13 @@ function DayCard({ day, index }) {
   );
 }
 
-export default function Lineup() {
+export default function Lineup({ content }) {
+  const days = [1, 2, 3, 4].map(n => ({
+    date: content[`lineup_day${n}_date`],
+    label: content[`lineup_day${n}_label`],
+    artists: content[`lineup_day${n}_artists`].split(' · ').map(a => a.trim()),
+  }));
+
   return (
     <section
       id="lineup"
@@ -64,19 +69,19 @@ export default function Lineup() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <AnimatedSection className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-accent-orange font-light mb-4">
-            16 artistes · 9 pays
+            {content.lineup_overline}
           </p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
             Lineup
           </h2>
           <p className="text-text-muted font-light text-sm tracking-wider">
-            Programmation complète à venir
+            {content.lineup_subtitle}
           </p>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {LINEUP.map((day, i) => (
-            <DayCard key={day.day} day={day} index={i} />
+          {days.map((day, i) => (
+            <DayCard key={day.date} day={day} index={i} />
           ))}
         </div>
       </div>

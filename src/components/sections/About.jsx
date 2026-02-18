@@ -1,10 +1,16 @@
-import { FESTIVAL_INFO, STATS } from "../../data/festival";
 import AnimatedSection from "../ui/AnimatedSection";
 import StatCounter from "../ui/StatCounter";
 import GoldenGlow from "../decorative/GoldenGlow";
 import monogramme from "../../assets/logo/Monogramme crème .png";
 
-export default function About() {
+export default function About({ content }) {
+  const stats = [
+    { value: Number(content.about_stat1_value), label: content.about_stat1_label, suffix: "" },
+    { value: Number(content.about_stat2_value), label: content.about_stat2_label, suffix: "" },
+    { value: Number(content.about_stat3_value), label: content.about_stat3_label, suffix: "" },
+    { value: Number(content.about_stat4_value), label: content.about_stat4_label, suffix: "" },
+  ];
+
   return (
     <section
       id="festival"
@@ -17,7 +23,7 @@ export default function About() {
         {/* Section heading */}
         <AnimatedSection className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-accent-orange font-light mb-4">
-            Première édition — Été 2025
+            {content.about_overline}
           </p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-8">
             Le Festival
@@ -28,14 +34,14 @@ export default function About() {
         {/* Description */}
         <AnimatedSection delay={0.2} className="max-w-3xl mx-auto text-center mb-20">
           <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-light">
-            {FESTIVAL_INFO.description}
+            {content.about_text}
           </p>
         </AnimatedSection>
 
         {/* Stats */}
         <AnimatedSection delay={0.4}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {STATS.map((stat) => (
+            {stats.map((stat) => (
               <StatCounter key={stat.label} {...stat} />
             ))}
           </div>

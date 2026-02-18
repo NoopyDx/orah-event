@@ -1,23 +1,21 @@
-import Navbar from "./components/layout/Navbar";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
-import Lineup from "./components/sections/Lineup";
-import Infos from "./components/sections/Infos";
-import Footer from "./components/layout/Footer";
-import GrainOverlay from "./components/decorative/GrainOverlay";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Site from './Site';
+import AdminLogin from './admin/AdminLogin';
+import AdminDashboard from './admin/AdminDashboard';
+import AdminRoute from './admin/AdminRoute';
 
 export default function App() {
   return (
-    <>
-      <GrainOverlay />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Lineup />
-        <Infos />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Site />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={
+          <AdminRoute>
+            <AdminDashboard />
+          </AdminRoute>
+        } />
+      </Routes>
+    </BrowserRouter>
   );
 }

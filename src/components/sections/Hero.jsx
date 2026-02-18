@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
-import { TICKET_LINKS } from "../../data/links";
-import { FESTIVAL_INFO } from "../../data/festival";
 import GoldenGlow from "../decorative/GoldenGlow";
 import Button from "../ui/Button";
 import heroBg from "../../assets/images/hero-bg.jpg";
 import logoPrimaire from "../../assets/logo/logo-primaire-creme.svg";
 
-export default function Hero() {
+export default function Hero({ content }) {
   return (
     <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -54,7 +52,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-sm md:text-base uppercase tracking-[0.3em] text-text-secondary font-light mb-2"
         >
-          {FESTIVAL_INFO.subtitle}
+          {content.hero_subtitle}
         </motion.p>
 
         {/* Location */}
@@ -64,7 +62,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.7 }}
           className="text-sm font-light tracking-wider mb-10 text-text-secondary"
         >
-          {FESTIVAL_INFO.location}
+          {content.hero_location}
         </motion.p>
 
         {/* CTAs */}
@@ -74,11 +72,11 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Button href={TICKET_LINKS.festival.url} variant="primary">
-            Tickets Festival
+          <Button href={content.hero_cta1_url} variant="primary">
+            {content.hero_cta1_label}
           </Button>
-          <Button href={TICKET_LINKS.guillemins.url} variant="outline">
-            Guillemins × Marten Lou
+          <Button href={content.hero_cta2_url} variant="outline">
+            {content.hero_cta2_label}
           </Button>
         </motion.div>
       </div>
