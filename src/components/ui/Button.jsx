@@ -7,13 +7,13 @@ export default function Button({
   className = "",
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-accent font-medium text-sm tracking-wide uppercase transition-all duration-500 cursor-pointer";
+    "inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium text-sm tracking-wide uppercase transition-all duration-500 cursor-pointer";
 
   const variants = {
     primary:
-      "bg-accent-gold text-bg-primary hover:bg-accent-amber hover:shadow-[0_0_40px_rgba(212,162,83,0.4)]",
+      "bg-accent-orange text-bg-light hover:bg-accent-amber hover:shadow-[0_0_40px_rgba(233,100,27,0.4)]",
     outline:
-      "border border-accent-gold/40 text-accent-gold hover:bg-accent-gold/10 hover:border-accent-gold hover:shadow-[0_0_30px_rgba(212,162,83,0.2)]",
+      "border border-accent-orange/40 text-accent-orange hover:bg-accent-orange/10 hover:border-accent-orange hover:shadow-[0_0_30px_rgba(233,100,27,0.2)]",
   };
 
   return (

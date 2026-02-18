@@ -4,6 +4,7 @@ import { FESTIVAL_INFO } from "../../data/festival";
 import GoldenGlow from "../decorative/GoldenGlow";
 import Button from "../ui/Button";
 import heroBg from "../../assets/images/hero-bg.jpg";
+import logoPrimaire from "../../assets/logo/logo-primaire-creme.svg";
 
 export default function Hero() {
   return (
@@ -31,32 +32,27 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Logo */}
-        <motion.h1
+        {/* Logo SVG officiel */}
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="font-display text-7xl sm:text-8xl md:text-9xl font-bold text-text-primary mb-4 drop-shadow-[0_0_60px_rgba(212,162,83,0.3)]"
+          className="mb-8"
         >
-          {FESTIVAL_INFO.displayName}
-        </motion.h1>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="font-display text-xl sm:text-2xl md:text-3xl text-accent-peach italic mb-3"
-        >
-          {FESTIVAL_INFO.tagline}
-        </motion.p>
+          <h1 className="sr-only">ORAH — Where light meets rhythm</h1>
+          <img
+            src={logoPrimaire}
+            alt="ORAH — Where light meets rhythm"
+            className="w-[320px] sm:w-[420px] md:w-[520px] mx-auto drop-shadow-[0_0_60px_rgba(233,100,27,0.2)]"
+          />
+        </motion.div>
 
         {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-sm md:text-base uppercase tracking-[0.3em] text-text-secondary font-accent mb-2"
+          className="text-sm md:text-base uppercase tracking-[0.3em] text-text-secondary font-light mb-2"
         >
           {FESTIVAL_INFO.subtitle}
         </motion.p>
@@ -66,7 +62,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.7 }}
-          className="text-sm text-text-muted font-accent tracking-wider mb-10"
+          className="text-sm text-text-muted font-light tracking-wider mb-10"
         >
           {FESTIVAL_INFO.location}
         </motion.p>
@@ -99,7 +95,7 @@ export default function Hero() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="w-5 h-8 rounded-full border border-text-muted/40 flex justify-center pt-1.5"
         >
-          <div className="w-1 h-2 rounded-full bg-accent-gold/60" />
+          <div className="w-1 h-2 rounded-full bg-accent-orange/60" />
         </motion.div>
       </motion.div>
     </section>

@@ -2,6 +2,7 @@ import { FESTIVAL_INFO, STATS } from "../../data/festival";
 import AnimatedSection from "../ui/AnimatedSection";
 import StatCounter from "../ui/StatCounter";
 import GoldenGlow from "../decorative/GoldenGlow";
+import monogramme from "../../assets/logo/Monogramme crème .png";
 
 export default function About() {
   return (
@@ -15,18 +16,18 @@ export default function About() {
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Section heading */}
         <AnimatedSection className="text-center mb-16">
-          <p className="text-sm uppercase tracking-[0.3em] text-accent-gold font-accent mb-4">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent-orange font-light mb-4">
             Première édition — Été 2025
           </p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-8">
             Le Festival
           </h2>
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-accent-gold to-transparent mx-auto" />
+          <div className="w-16 h-px bg-gradient-to-r from-transparent via-accent-orange to-transparent mx-auto" />
         </AnimatedSection>
 
         {/* Description */}
         <AnimatedSection delay={0.2} className="max-w-3xl mx-auto text-center mb-20">
-          <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-body">
+          <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-light">
             {FESTIVAL_INFO.description}
           </p>
         </AnimatedSection>
@@ -40,12 +41,16 @@ export default function About() {
           </div>
         </AnimatedSection>
 
-        {/* Decorative large text */}
+        {/* Decorative monogramme */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[14rem] md:text-[20rem] font-bold text-accent-gold/[0.03] pointer-events-none select-none whitespace-nowrap"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none opacity-[0.04]"
           aria-hidden="true"
         >
-          ѲRAH.
+          <img
+            src={monogramme}
+            alt=""
+            className="w-[400px] md:w-[600px]"
+          />
         </div>
       </div>
     </section>

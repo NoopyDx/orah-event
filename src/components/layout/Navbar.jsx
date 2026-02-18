@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TICKET_LINKS } from "../../data/links";
+import logoNav from "../../assets/logo/logo-nav-creme.svg";
 
 const NAV_ITEMS = [
   { label: "Le Festival", href: "#festival" },
@@ -35,17 +36,14 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled
-          ? "bg-bg-primary/90 backdrop-blur-md shadow-[0_1px_0_rgba(212,162,83,0.1)]"
+          ? "bg-bg-primary/90 backdrop-blur-md shadow-[0_1px_0_rgba(233,100,27,0.1)]"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#"
-          className="font-display text-2xl md:text-3xl font-bold text-text-primary tracking-tight"
-        >
-          ѲRAH.
+        <a href="#" aria-label="ORAH — Accueil">
+          <img src={logoNav} alt="ORAH" className="h-8 md:h-10 w-auto" />
         </a>
 
         {/* Desktop nav */}
@@ -54,7 +52,7 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm uppercase tracking-[0.15em] text-text-secondary hover:text-accent-gold transition-colors duration-300 font-accent"
+              className="text-sm uppercase tracking-[0.15em] text-text-secondary hover:text-accent-orange transition-colors duration-300 font-light"
             >
               {item.label}
             </a>
@@ -64,7 +62,7 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setTicketsOpen(!ticketsOpen)}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-accent-gold text-bg-primary text-sm font-accent font-medium uppercase tracking-wide hover:bg-accent-amber transition-all duration-300 cursor-pointer hover:shadow-[0_0_30px_rgba(212,162,83,0.3)]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-accent-orange text-bg-light text-sm font-medium uppercase tracking-wide hover:bg-accent-amber transition-all duration-300 cursor-pointer hover:shadow-[0_0_30px_rgba(233,100,27,0.3)]"
             >
               <span>Tickets</span>
               <svg
@@ -85,7 +83,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.95 }}
                   transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="absolute right-0 mt-3 w-72 bg-bg-card/95 backdrop-blur-md border border-accent-gold/15 rounded-2xl overflow-hidden shadow-xl"
+                  className="absolute right-0 mt-3 w-72 bg-bg-card/95 backdrop-blur-md border border-accent-orange/15 rounded-2xl overflow-hidden shadow-xl"
                 >
                   {Object.values(TICKET_LINKS).map((link) => (
                     <a
@@ -93,7 +91,7 @@ export default function Navbar() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block px-5 py-4 hover:bg-accent-gold/10 transition-colors duration-300"
+                      className="block px-5 py-4 hover:bg-accent-orange/10 transition-colors duration-300"
                       onClick={() => setTicketsOpen(false)}
                     >
                       <div className="text-sm font-medium text-text-primary">
@@ -147,7 +145,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="text-2xl uppercase tracking-[0.2em] text-text-secondary hover:text-accent-gold transition-colors font-accent"
+                  className="text-2xl uppercase tracking-[0.2em] text-text-secondary hover:text-accent-orange transition-colors font-light"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -158,7 +156,7 @@ export default function Navbar() {
                   href={TICKET_LINKS.festival.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-6 py-4 rounded-xl bg-accent-gold text-bg-primary text-center text-sm font-accent font-medium uppercase tracking-wide"
+                  className="block px-6 py-4 rounded-xl bg-accent-orange text-bg-light text-center text-sm font-medium uppercase tracking-wide"
                   onClick={() => setMobileOpen(false)}
                 >
                   Tickets Festival
@@ -167,7 +165,7 @@ export default function Navbar() {
                   href={TICKET_LINKS.guillemins.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-6 py-4 rounded-xl border border-accent-gold/40 text-accent-gold text-center text-sm font-accent font-medium uppercase tracking-wide"
+                  className="block px-6 py-4 rounded-xl border border-accent-orange/40 text-accent-orange text-center text-sm font-medium uppercase tracking-wide"
                   onClick={() => setMobileOpen(false)}
                 >
                   Guillemins × Marten Lou

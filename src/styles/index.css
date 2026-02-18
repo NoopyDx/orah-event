@@ -1,23 +1,30 @@
 @import "tailwindcss";
 
-@theme {
-  --color-bg-primary: #1C1410;
-  --color-bg-secondary: #261C15;
-  --color-bg-card: #2E2118;
-  --color-bg-light: #FFF8F0;
+@font-face {
+  font-family: "Geologica";
+  src: url("../assets/fonts/Geologica-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
 
-  --color-accent-gold: #D4A253;
-  --color-accent-amber: #E8913A;
+@theme {
+  --color-bg-primary: #331610;
+  --color-bg-secondary: #3D1E15;
+  --color-bg-card: #472819;
+  --color-bg-light: #FDFAE3;
+
+  --color-accent-orange: #E9641B;
+  --color-accent-amber: #F07B35;
   --color-accent-rose: #C27878;
   --color-accent-peach: #E8B89D;
 
-  --color-text-primary: #FFF8F0;
-  --color-text-secondary: #C4A882;
+  --color-text-primary: #FDFAE3;
+  --color-text-secondary: #D4B896;
   --color-text-muted: #8B7355;
 
-  --font-display: "Familjen Grotesk", sans-serif;
-  --font-body: "DM Sans", sans-serif;
-  --font-accent: "Space Grotesk", sans-serif;
+  --font-display: "Geologica", sans-serif;
+  --font-body: "Geologica", sans-serif;
+  --font-accent: "Geologica", sans-serif;
 }
 
 html {
@@ -27,6 +34,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-weight: 300;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
@@ -42,13 +50,13 @@ body {
   background: var(--color-bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent-gold);
+  background: var(--color-accent-orange);
   border-radius: 3px;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(212, 162, 83, 0.3);
+  background: rgba(233, 100, 27, 0.3);
   color: var(--color-text-primary);
 }
 

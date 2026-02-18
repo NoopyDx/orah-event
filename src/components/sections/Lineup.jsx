@@ -19,10 +19,10 @@ function DayCard({ day, index }) {
       }}
       className="relative group"
     >
-      <div className="p-6 md:p-8 rounded-2xl border border-accent-gold/10 bg-bg-card/50 backdrop-blur-sm hover:border-accent-gold/25 transition-all duration-500 hover:shadow-[0_0_40px_rgba(212,162,83,0.08)]">
+      <div className="p-6 md:p-8 rounded-2xl border border-accent-orange/10 bg-bg-card/50 backdrop-blur-sm hover:border-accent-orange/25 transition-all duration-500 hover:shadow-[0_0_40px_rgba(233,100,27,0.08)]">
         {/* Day header */}
         <div className="flex items-baseline gap-3 mb-5">
-          <h3 className="font-accent text-xs uppercase tracking-[0.2em] text-accent-gold">
+          <h3 className="text-xs uppercase tracking-[0.2em] text-accent-orange font-light">
             {day.day}
           </h3>
           {day.label && (
@@ -63,13 +63,13 @@ export default function Lineup() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <AnimatedSection className="text-center mb-16">
-          <p className="text-sm uppercase tracking-[0.3em] text-accent-gold font-accent mb-4">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent-orange font-light mb-4">
             16 artistes · 9 pays
           </p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
             Lineup
           </h2>
-          <p className="text-text-muted font-accent text-sm tracking-wider">
+          <p className="text-text-muted font-light text-sm tracking-wider">
             Programmation complète à venir
           </p>
         </AnimatedSection>
